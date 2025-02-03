@@ -10,15 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            
+            LinearGradient(gradient: Gradient(colors: [.blue, .white]),
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+                .ignoresSafeArea(.all)
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                HStack {
-                    Text("Hello,World!")
-                    Text("Hello,World!")
-                }
+                Text("Kyiv, Ukraine")
+                    .font(.system(size: 32, weight: .medium, design: .rounded))
+                    .foregroundColor(.white)
+                    .padding(.all, 32)
+                Spacer()
                 
             }
             .padding()
