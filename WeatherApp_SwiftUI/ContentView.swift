@@ -33,103 +33,25 @@ struct ContentView: View {
                             design: .rounded))
                         .foregroundColor(.white)
                 }
+                Spacer()
                 
                 HStack(spacing: 15) {
-                    VStack(spacing : 6) {
-                        Text("Mon")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                        Image(systemName: "cloud.sun.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 48, height: 48)
-                        Text("25°C")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                    }
-                    VStack(spacing : 6) {
-                        Text("Mon")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                        Image(systemName: "sun.max.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 48, height: 48)
-                        Text("25°C")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                    }
-                    VStack(spacing : 6) {
-                        Text("Mon")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                        Image(systemName: "wind")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 48, height: 48)
-                        Text("25°C")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                    }
-                    VStack(spacing : 6) {
-                        Text("Mon")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                        Image(systemName: "sunset.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 48, height: 48)
-                        Text("25°C")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                    }
-                    VStack(spacing : 6) {
-                        Text("Mon")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                        Image(systemName: "moon.stars.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 48, height: 48)
-                        Text("25°C")
-                            .font(.system(
-                                size: 24,
-                                weight: .medium,
-                                design: .rounded))
-                            .foregroundColor(.white)
-                    }
+                    WeatherDayView(dayOfWeek: "MON",
+                                   imageName: "cloud.sun.fill",
+                                   temperature: 25)
+                    WeatherDayView(dayOfWeek: "TUE",
+                                   imageName: "sun.max.fill",
+                                   temperature: 33)
+                    WeatherDayView(dayOfWeek: "WED",
+                                   imageName: "wind.snow",
+                                   temperature: 15)
+                    WeatherDayView(dayOfWeek: "THU",
+                                   imageName: "sunset.fill",
+                                   temperature: 19)
+                    WeatherDayView(dayOfWeek: "FRI",
+                                   imageName: "moon.stars.fill",
+                                   temperature: 20)
+                    
                 }
                 Spacer()
             }
@@ -143,4 +65,34 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+
+
+struct WeatherDayView: View {
+    var dayOfWeek: String
+    var imageName: String
+    var temperature: Int
+    
+    var body: some View {
+        VStack(spacing : 6) {
+            Text(dayOfWeek)
+                .font(.system(
+                    size: 24,
+                    weight: .medium,
+                    design: .rounded))
+                .foregroundColor(.white)
+            Image(systemName: imageName)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 48, height: 48)
+            Text("\(temperature)°C")
+                .font(.system(
+                    size: 24,
+                    weight: .medium,
+                    design: .rounded))
+                .foregroundColor(.white)
+        }
+    }
 }
